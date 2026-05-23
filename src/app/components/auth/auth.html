@@ -1,0 +1,56 @@
+<div class="auth-wrapper d-flex align-items-center justify-content-center py-4">
+  <div class="auth-screen bg-white">
+    
+    <div class="px-4 pt-4">
+      <a routerLink="/onboarding" class="back-link text-decoration-none">
+        ← Back
+      </a>
+    </div>
+
+    <div class="text-center mt-3 mb-4">
+      <img src="/assets/mario-logo.png" alt="Mario Plus Logo" class="logo-img mb-2">
+      <h1 class="auth-title mb-2">Regístrate</h1>
+      <p class="help-text mb-0">¿Necesitas ayuda? <a href="#">Haz click aquí</a></p>
+    </div>
+
+    <div class="px-4 pb-4">
+      <form>
+        <div class="mb-3">
+          <label class="form-label auth-label">Nombre</label>
+          <input type="text" class="form-control auth-input" placeholder="Value">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label auth-label">Username</label>
+          <input type="text" class="form-control auth-input" placeholder="Value">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label auth-label">Email</label>
+          <input type="email" class="form-control auth-input" placeholder="Value">
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label auth-label">Contraseña</label>
+          <input type="password" class="form-control auth-input" placeholder="Value">
+        </div>
+
+        <div class="d-grid mb-4">
+          <button type="button" class="btn register-btn">Registrar</button>
+        </div>
+
+        <p class="text-center social-text mb-3">o usa una de tus redes sociales</p>
+
+        <div class="d-grid mb-4">
+          <button type="button" class="btn google-btn">Regístrate con Google</button>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-end mt-4">
+          <div class="login-question">¿Tienes una<br>cuenta?</div>
+          <a routerLink="/home" class="login-link text-decoration-none">Inicia Sesión</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
