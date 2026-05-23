@@ -1,5 +1,102 @@
-<div class="container py-5">
-  <h1 class="text-success">Pantalla Home</h1>
-  <p>Centro principal de la aplicación Mario+.</p>
-  <a routerLink="/profile" class="btn btn-warning">Ir a Perfil</a>
+<div class="home-wrapper d-flex justify-content-center py-4">
+  <div class="app-screen bg-white">
+
+    <!-- Cabecera roja -->
+    <section class="top-panel text-white p-3">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <button class="icon-btn">☰</button>
+
+        <div class="search-box d-flex align-items-center px-3">
+          <span class="search-placeholder">search</span>
+          <span class="ms-auto">⌕</span>
+        </div>
+
+        <button class="icon-btn">◉</button>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center gap-3">
+        <div>
+          <h1 class="hello-title mb-2">Hi, Mario</h1>
+          <p class="hello-text mb-0">Te faltan 10 rachas para<br>ser Nivel Gold</p>
+        </div>
+
+        <div class="progress-circle">
+          <div class="progress-circle-inner">80%</div>
+        </div>
+      </div>
+
+      <div class="stats-card mt-4">
+        <div class="row text-center g-0">
+          <div class="col-4">
+            <div class="stat-number">120</div>
+            <div class="stat-label">partidas</div>
+          </div>
+          <div class="col-4">
+            <div class="stat-number">47</div>
+            <div class="stat-label">racha máxima</div>
+          </div>
+          <div class="col-4">
+            <div class="stat-number">0.43</div>
+            <div class="stat-label">mejor marca</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accesos rápidos -->
+    <section class="px-3 pt-4">
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="quick-card text-center">
+            <div class="quick-thumb mb-2">
+              <img src="/assets/curiosidades-icon.png" alt="Curiosidades" class="quick-image">
+            </div>
+            <div class="quick-title">Curiosidades</div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="quick-card text-center">
+            <div class="quick-thumb mb-2">
+              <img src="/assets/reto-icon.png" alt="Reto del día" class="quick-image">
+            </div>
+            <div class="quick-title">Reto del Día</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenido desbloqueable -->
+    <section class="px-3 pt-4 pb-5">
+      <div class="unlock-card">
+        <img src="/assets/desbloqueo-card.jpg" alt="Juega para desbloquear" class="unlock-image">
+        <div class="unlock-badge">🔒</div>
+        <div class="unlock-label">¡Juega para desbloquear!</div>
+      </div>
+    </section>
+
+    <!-- Barra inferior -->
+    <nav class="bottom-nav">
+  <a routerLink="/home" class="nav-item active-item">
+    <img src="/assets/icon-home.png" alt="Home" class="nav-icon">
+    <span>Home</span>
+  </a>
+
+  <button type="button" class="nav-item nav-button">
+    <img src="/assets/icon-mundos.png" alt="Mundos" class="nav-icon">
+    <span>Mundos</span>
+  </button>
+
+  <button type="button" class="nav-item nav-button">
+    <img src="/assets/icon-personajes.png" alt="Personajes" class="nav-icon">
+    <span>Personajes</span>
+  </button>
+
+  <button type="button" class="nav-item nav-button">
+    <img src="/assets/icon-juegos.png" alt="Juegos" class="nav-icon">
+    <span>Juegos</span>
+  </button>
+</nav>
+
+  </div>
 </div>
