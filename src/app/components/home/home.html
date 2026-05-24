@@ -1,102 +1,112 @@
-<div class="home-wrapper d-flex justify-content-center py-4">
-  <div class="app-screen bg-white">
+<div class="home-page">
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="brand-area">
+  <img src="/assets/logo-mario-plus.png" alt="Logo Mario Plus" class="brand-logo-img">
+</div>
 
-    <!-- Cabecera roja -->
-    <section class="top-panel text-white p-3">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <button class="icon-btn">☰</button>
+        <nav class="main-nav">
+          <a routerLink="/home" class="nav-link active-link">Home</a>
+          <a class="nav-link">Mundos</a>
+          <a class="nav-link">Personajes</a>
+          <a class="nav-link">Juegos</a>
+        </nav>
 
-        <div class="search-box d-flex align-items-center px-3">
-          <span class="search-placeholder">search</span>
-          <span class="ms-auto">⌕</span>
-        </div>
-
-        <button class="icon-btn">◉</button>
-      </div>
-
-      <div class="d-flex justify-content-between align-items-center gap-3">
-        <div>
-          <h1 class="hello-title mb-2">Hi, Mario</h1>
-          <p class="hello-text mb-0">Te faltan 10 rachas para<br>ser Nivel Gold</p>
-        </div>
-
-        <div class="progress-circle">
-          <div class="progress-circle-inner">80%</div>
+        <div class="header-actions">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar" />
+          </div>
+          <a routerLink="/profile" class="profile-btn">Perfil</a>
         </div>
       </div>
+    </div>
+  </header>
 
-      <div class="stats-card mt-4">
-        <div class="row text-center g-0">
-          <div class="col-4">
-            <div class="stat-number">120</div>
-            <div class="stat-label">partidas</div>
+  <main class="container py-4 py-lg-5">
+    <section class="hero-panel">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <div class="hero-copy">
+            <p class="mini-label mb-2">Companion App</p>
+            <h1 class="hero-title">Hi, Mario</h1>
+            <p class="hero-text">
+              Te faltan 10 rachas para ser Nivel Gold. Explora curiosidades,
+              completa retos y desbloquea contenido exclusivo.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-light btn-lg rounded-pill px-4">Curiosidades</button>
+              <button class="btn btn-outline-light btn-lg rounded-pill px-4">Reto del Día</button>
+            </div>
           </div>
-          <div class="col-4">
-            <div class="stat-number">47</div>
-            <div class="stat-label">racha máxima</div>
-          </div>
-          <div class="col-4">
-            <div class="stat-number">0.43</div>
-            <div class="stat-label">mejor marca</div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="progress-panel">
+            <div class="progress-circle">
+              <div class="progress-circle-inner">80%</div>
+            </div>
+            <div class="level-info">
+              <h3 class="mb-1">Nivel Silver</h3>
+              <p class="mb-0">Tu progreso actual te acerca al Nivel Gold.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Accesos rápidos -->
-    <section class="px-3 pt-4">
+    <section class="stats-section mt-4">
       <div class="row g-3">
-        <div class="col-6">
-          <div class="quick-card text-center">
-            <div class="quick-thumb mb-2">
-              <img src="/assets/curiosidades-icon.png" alt="Curiosidades" class="quick-image">
-            </div>
-            <div class="quick-title">Curiosidades</div>
+        <div class="col-md-4">
+          <div class="stat-card">
+            <h3>120</h3>
+            <p>partidas</p>
           </div>
         </div>
-
-        <div class="col-6">
-          <div class="quick-card text-center">
-            <div class="quick-thumb mb-2">
-              <img src="/assets/reto-icon.png" alt="Reto del día" class="quick-image">
-            </div>
-            <div class="quick-title">Reto del Día</div>
+        <div class="col-md-4">
+          <div class="stat-card">
+            <h3>47</h3>
+            <p>racha máxima</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-card">
+            <h3>0.43</h3>
+            <p>mejor marca</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contenido desbloqueable -->
-    <section class="px-3 pt-4 pb-5">
-      <div class="unlock-card">
-        <img src="/assets/desbloqueo-card.jpg" alt="Juega para desbloquear" class="unlock-image">
-        <div class="unlock-badge">🔒</div>
-        <div class="unlock-label">¡Juega para desbloquear!</div>
+    <section class="quick-section mt-4">
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4">
+          <div class="quick-card">
+            <img src="/assets/curiosidades-icon.png" alt="Curiosidades" class="quick-image">
+            <h4>Curiosidades</h4>
+            <p>Descubre contenido especial del universo Mario.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <div class="quick-card">
+            <img src="/assets/reto-icon.png" alt="Reto del día" class="quick-image">
+            <h4>Reto del Día</h4>
+            <p>Completa desafíos y mejora tu progreso diario.</p>
+          </div>
+        </div>
+
+        <div class="col-xl-4">
+          <div class="unlock-card">
+            <img src="/assets/desbloqueo-card.jpg" alt="Contenido desbloqueable" class="unlock-image">
+            <div class="unlock-overlay">
+              <h4>Juega para desbloquear</h4>
+              <p>Accede a contenido exclusivo al cumplir tus metas.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
-    <!-- Barra inferior -->
-    <nav class="bottom-nav">
-  <a routerLink="/home" class="nav-item active-item">
-    <img src="/assets/icon-home.png" alt="Home" class="nav-icon">
-    <span>Home</span>
-  </a>
-
-  <button type="button" class="nav-item nav-button">
-    <img src="/assets/icon-mundos.png" alt="Mundos" class="nav-icon">
-    <span>Mundos</span>
-  </button>
-
-  <button type="button" class="nav-item nav-button">
-    <img src="/assets/icon-personajes.png" alt="Personajes" class="nav-icon">
-    <span>Personajes</span>
-  </button>
-
-  <button type="button" class="nav-item nav-button">
-    <img src="/assets/icon-juegos.png" alt="Juegos" class="nav-icon">
-    <span>Juegos</span>
-  </button>
-</nav>
-
-  </div>
+  </main>
 </div>

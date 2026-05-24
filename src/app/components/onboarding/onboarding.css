@@ -1,22 +1,109 @@
-.onboarding-wrapper {
+.onboarding-page {
   min-height: 100vh;
-  background-image: url('/assets/onboarding-bg.jpg');
+  background-image:
+    linear-gradient(rgba(20, 20, 20, 0.32), rgba(20, 20, 20, 0.32)),
+    url('/assets/onboarding-background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.onboarding-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 720px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(3px);
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.onboarding-visual {
   position: relative;
+  background-image:
+    linear-gradient(to top, rgba(40, 0, 120, 0.72), rgba(0, 0, 0, 0.18)),
+    url('/assets/onboarding-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 720px;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(38, 0, 120, 0.85), rgba(0, 0, 0, 0.25));
+.onboarding-content {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
 }
 
-.content {
-  z-index: 2;
+.content-inner {
+  width: 100%;
+  max-width: 430px;
+  text-align: center;
 }
 
-.btn {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+.onboarding-logo {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 18px;
+}
+
+.onboarding-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+.onboarding-text {
+  font-size: 1rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.guest-btn {
+  border-width: 2px;
+}
+
+@media (max-width: 991px) {
+  .onboarding-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .onboarding-visual {
+    min-height: 320px;
+  }
+
+  .onboarding-content {
+    padding: 28px 18px 34px;
+  }
+
+  .onboarding-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .onboarding-card {
+    border-radius: 24px;
+  }
+
+  .content-inner {
+    max-width: 100%;
+  }
 }

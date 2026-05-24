@@ -1,13 +1,28 @@
-<div class="onboarding-wrapper d-flex flex-column justify-content-end align-items-center text-center text-white">
-  <div class="overlay"></div>
+<div class="onboarding-page">
+  <div class="container onboarding-shell">
+    <div class="onboarding-card">
 
-  <div class="content position-relative w-100 px-4 pb-5">
-    <h1 class="fw-bold mb-2">Welcome to Mario+</h1>
-    <p class="mb-4">Start your journey here</p>
+      <!-- Zona visual -->
+      <section class="onboarding-visual"></section>
 
-    <div class="d-grid gap-3 col-10 mx-auto">
-      <a routerLink="/auth" class="btn btn-light btn-lg rounded-pill">Join or Sign In</a>
-      <a routerLink="/home" class="btn btn-outline-light btn-lg rounded-pill">Continue as Guest</a>
+      <!-- Zona de contenido -->
+      <section class="onboarding-content">
+        <div class="content-inner">
+          <img src="/assets/logo-mario-plus.png" alt="Logo Mario Plus" class="onboarding-logo">
+
+          <h1 class="onboarding-title">Welcome to Mario+</h1>
+          <p class="onboarding-text">
+            Descubre retos, curiosidades, progreso y contenido especial
+            dentro de una experiencia companion inspirada en el universo Mario Bros.
+          </p>
+
+          <div class="d-grid gap-3">
+            <a routerLink="/auth" class="btn btn-danger btn-lg rounded-pill">Join or Sign In</a>
+            <a routerLink="/home" class="btn btn-outline-secondary btn-lg rounded-pill guest-btn">Continue as Guest</a>
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>
 </div>
