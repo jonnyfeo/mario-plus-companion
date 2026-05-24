@@ -1,0 +1,270 @@
+.home-page {
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+/* HEADER */
+
+.site-header {
+  background: linear-gradient(180deg, #e00000 0%, #c80000 100%);
+  padding: 18px 0;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brand-logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.main-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
+
+.active-link {
+  background: rgba(255,255,255,0.18);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  min-width: 220px;
+}
+
+.profile-btn {
+  background: white;
+  color: #c80000;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* HERO */
+
+.hero-banner {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+
+  background-image: url('/assets/game-hero.jpg'); /* puedes cambiar imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 320px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(190, 0, 0, 0.88),
+    rgba(35, 0, 110, 0.6)
+  );
+}
+
+.hero-banner > div {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 40px 32px;
+}
+
+.site-header {
+  position: relative;
+  z-index: 999;
+}
+
+.mini-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero-text {
+  font-size: 1.08rem;
+  max-width: 560px;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .main-nav {
+    justify-content: center;
+  }
+
+  .header-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search-box input {
+    min-width: 180px;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+}
+
+/* CARDS DE */
+
+.character-card{
+  background:white;
+  border-radius:24px;
+  overflow:hidden;
+  height:100%;
+  box-shadow:0 10px 22px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+
+.character-card:hover{
+  transform:translateY(-6px);
+}
+
+.character-image{
+  width:100%;
+  height:280px;
+  object-fit:contain;
+  background:#f8f8f8;
+  padding:20px;
+}
+
+.character-content{
+  padding:24px;
+}
+
+.character-content h3{
+  font-size:1.5rem;
+  font-weight:800;
+  color:#d10000;
+  margin-bottom:10px;
+}
+
+.character-content p{
+  color:#555;
+  margin-bottom:18px;
+  line-height:1.5;
+}
+
+.favorite-badge{
+  display:inline-block;
+  background:#ffe082;
+  color:#7a5200;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.character-card.locked {
+  opacity: 0.55;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  position: relative;
+  pointer-events: none; /* 🔥 evita clicks */
+}
+
+.character-card.locked img {
+  filter: blur(2px) grayscale(100%);
+}
+
+.lock-content {
+  font-weight: 800;
+  color: #444;
+}
+
+.lock-content p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+}
+
+.lock-content span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #666;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  border: none;
+  background: white;
+  color: #333;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.active-filter {
+  background: #d10000;
+  color: white;
+}

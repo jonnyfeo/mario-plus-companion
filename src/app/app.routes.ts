@@ -4,6 +4,7 @@ import { Auth } from './components/auth/auth';
 import { Home } from './components/home/home';
 import { Profile } from './components/profile/profile';
 import { Games } from './components/games/games';
+import { Personajes } from './components/personajes/personajes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'onboarding', pathMatch: 'full' },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'auth', component: Auth },
   { path: 'home', component: Home },
   { path: 'profile', component: Profile },
-  { path: 'games', component: Games }
+  { path: 'games', component: Games },
+  { path: 'personajes', component: Personajes }
 ];

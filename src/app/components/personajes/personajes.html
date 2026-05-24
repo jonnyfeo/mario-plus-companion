@@ -1,0 +1,138 @@
+<div class="home-page">
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <div class="brand-area">
+          <img src="assets/logo-mario-plus.png"
+               alt="Logo Mario Plus"
+               class="brand-logo-img">
+        </div>
+
+        <nav class="main-nav">
+          <a routerLink="/home" class="nav-link">Home</a>
+          <a class="nav-link">Mundos</a>
+          <a routerLink="/personajes" class="nav-link active-link">Personajes</a>
+          <a class="nav-link">Juegos</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar personaje">
+          </div>
+
+          <a routerLink="/profile" class="profile-btn">
+            Perfil
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+
+    <section class="characters-hero mb-5">
+      <div class="hero-banner">
+
+        <div>
+          <p class="mini-label mb-2">Universo Mario</p>
+          <h1 class="hero-title">Personajes</h1>
+
+          <p class="hero-text">
+            Explora todos los personajes del universo Mario, desde los héroes hasta los villanos. Conoce sus historias, habilidades y curiosidades en un solo lugar.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="characters-section">
+
+      <!-- FILTROS -->
+      <div class="filter-bar mb-4">
+
+        <button class="filter-btn"
+        [class.active-filter]="filtro === 'todos'"
+        (click)="filtro='todos'">
+  Todos
+</button>
+
+<button class="filter-btn"
+        [class.active-filter]="filtro === 'favoritos'"
+        (click)="filtro='favoritos'">
+  Favoritos ⭐
+</button>
+
+<button class="filter-btn"
+        [class.active-filter]="filtro === 'bloqueados'"
+        (click)="filtro='bloqueados'">
+  Bloqueados 🔒
+</button>
+
+      </div>
+
+      <!-- CARDS -->
+      <div class="row g-4">
+
+        <div class="col-md-6 col-xl-3"
+             *ngFor="let personaje of personajesFiltrados">
+
+          <div class="character-card"
+               [class.locked]="personaje.locked">
+
+            <img
+              [src]="personaje.imagen"
+              [alt]="personaje.nombre"
+              class="character-image"
+            >
+
+            <!-- 🔒 OVERLAY BLOQUEADO -->
+            <div class="locked-overlay" *ngIf="personaje.locked">
+              <div class="lock-content">
+                🔒
+                <p>Bloqueado</p>
+                <span>Sigue jugando para desbloquear</span>
+              </div>
+            </div>
+
+            <div class="character-content">
+
+              <!-- ⭐ FAVORITO CLICKEABLE -->
+              <div
+                class="favorite-badge"
+                (click)="toggleFavorito(personaje)"
+                [class.active]="personaje.favorito"
+              >
+                ⭐ {{ personaje.favorito ? 'Favorito' : 'Agregar favorito' }}
+              </div>
+
+              <h3>
+                {{ personaje.nombre }}
+              </h3>
+
+              <p>
+                {{ personaje.descripcion }}
+              </p>
+
+              <button
+                class="btn btn-danger rounded-pill px-4"
+                (click)="verMas(personaje)"
+                [disabled]="personaje.locked">
+                Ver más
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
