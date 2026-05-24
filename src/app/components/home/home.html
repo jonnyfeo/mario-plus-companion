@@ -2,9 +2,11 @@
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
+
         <div class="brand-area">
-  <img src="/assets/logo-mario-plus.png" alt="Logo Mario Plus" class="brand-logo-img">
-</div>
+          <!-- Property Binding: la imagen se carga desde una variable del TS -->
+          <img [src]="logoApp" alt="Logo Mario Plus" class="brand-logo-img">
+        </div>
 
         <nav class="main-nav">
           <a routerLink="/home" class="nav-link active-link">Home</a>
@@ -29,15 +31,24 @@
         <div class="col-lg-7">
           <div class="hero-copy">
             <p class="mini-label mb-2">Companion App</p>
-            <h1 class="hero-title">Hi, Mario</h1>
+
+            <!-- Interpolación: muestra el nombre del usuario -->
+            <h1 class="hero-title">Hi, {{ nombreUsuario }}</h1>
+
+            <!-- Interpolación: muestra el mensaje dinámico -->
             <p class="hero-text">
-              Te faltan 10 rachas para ser Nivel Gold. Explora curiosidades,
-              completa retos y desbloquea contenido exclusivo.
+              {{ mensajeProgreso }}
             </p>
 
             <div class="hero-actions">
-              <button class="btn btn-light btn-lg rounded-pill px-4">Curiosidades</button>
-              <button class="btn btn-outline-light btn-lg rounded-pill px-4">Reto del Día</button>
+              <!-- Event Binding: ejecuta una función al hacer clic -->
+              <button class="btn btn-light btn-lg rounded-pill px-4" (click)="verSeccion('Curiosidades')">
+                Curiosidades
+              </button>
+
+              <button class="btn btn-outline-light btn-lg rounded-pill px-4" (click)="verSeccion('Reto del Día')">
+                Reto del Día
+              </button>
             </div>
           </div>
         </div>
@@ -45,11 +56,16 @@
         <div class="col-lg-5">
           <div class="progress-panel">
             <div class="progress-circle">
-              <div class="progress-circle-inner">80%</div>
+              <!-- Interpolación: muestra el porcentaje actual -->
+              <div class="progress-circle-inner">{{ porcentajeProgreso }}%</div>
             </div>
+
             <div class="level-info">
-              <h3 class="mb-1">Nivel Silver</h3>
-              <p class="mb-0">Tu progreso actual te acerca al Nivel Gold.</p>
+              <!-- Interpolación -->
+              <h3 class="mb-1">Nivel {{ nivelUsuario }}</h3>
+
+              <!-- Interpolación -->
+              <p class="mb-0">{{ mensajeNivel }}</p>
             </div>
           </div>
         </div>
@@ -80,33 +96,41 @@
     </section>
 
     <section class="quick-section mt-4">
-      <div class="row g-4">
-        <div class="col-md-6 col-xl-4">
-          <div class="quick-card">
-            <img src="/assets/curiosidades-icon.png" alt="Curiosidades" class="quick-image">
-            <h4>Curiosidades</h4>
-            <p>Descubre contenido especial del universo Mario.</p>
-          </div>
-        </div>
+  <div class="row g-4">
 
-        <div class="col-md-6 col-xl-4">
-          <div class="quick-card">
-            <img src="/assets/reto-icon.png" alt="Reto del día" class="quick-image">
-            <h4>Reto del Día</h4>
-            <p>Completa desafíos y mejora tu progreso diario.</p>
-          </div>
-        </div>
+    <!-- Cada card completa funciona como botón -->
+    <div class="col-md-6 col-xl-4" *ngFor="let acceso of accesosRapidos">
+      <button
+        type="button"
+        class="quick-card quick-card-button"
+        (click)="verSeccion(acceso.titulo)">
 
-        <div class="col-xl-4">
-          <div class="unlock-card">
-            <img src="/assets/desbloqueo-card.jpg" alt="Contenido desbloqueable" class="unlock-image">
-            <div class="unlock-overlay">
-              <h4>Juega para desbloquear</h4>
-              <p>Accede a contenido exclusivo al cumplir tus metas.</p>
-            </div>
-          </div>
+        <!-- Property Binding -->
+        <img [src]="acceso.imagen" [alt]="acceso.titulo" class="quick-image">
+
+        <!-- Interpolación -->
+        <h4>{{ acceso.titulo }}</h4>
+
+        <!-- Interpolación -->
+        <p>{{ acceso.descripcion }}</p>
+      </button>
+    </div>
+
+    <div class="col-xl-4">
+      <button
+        type="button"
+        class="unlock-card unlock-card-button"
+        (click)="verSeccion('Contenido desbloqueable')">
+
+        <img src="/assets/desbloqueo-card.jpg" alt="Contenido desbloqueable" class="unlock-image">
+
+        <div class="unlock-overlay">
+          <h4>Juega para desbloquear</h4>
+          <p>Accede a contenido exclusivo al cumplir tus metas.</p>
         </div>
-      </div>
-    </section>
+      </button>
+    </div>
+  </div>
+</section>
   </main>
 </div>

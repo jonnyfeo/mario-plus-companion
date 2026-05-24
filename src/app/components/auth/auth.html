@@ -32,27 +32,57 @@
           <form>
             <div class="mb-3">
               <label class="form-label auth-label">Nombre</label>
-              <input type="text" class="form-control auth-input" placeholder="Value">
+              <input
+                type="text"
+                class="form-control auth-input"
+                placeholder="Value"
+                [(ngModel)]="nombre"
+                name="nombre"
+                [ngClass]="{ 'is-invalid': formularioInvalido && !nombre }">
             </div>
 
             <div class="mb-3">
               <label class="form-label auth-label">Username</label>
-              <input type="text" class="form-control auth-input" placeholder="Value">
+              <input
+                type="text"
+                class="form-control auth-input"
+                placeholder="Value"
+                [(ngModel)]="username"
+                name="username"
+                [ngClass]="{ 'is-invalid': formularioInvalido && !username }">
             </div>
 
             <div class="mb-3">
               <label class="form-label auth-label">Email</label>
-              <input type="email" class="form-control auth-input" placeholder="Value">
+              <input
+                type="email"
+                class="form-control auth-input"
+                placeholder="Value"
+                [(ngModel)]="email"
+                name="email"
+                [ngClass]="{ 'is-invalid': formularioInvalido && !email }">
             </div>
 
             <div class="mb-4">
               <label class="form-label auth-label">Contraseña</label>
-              <input type="password" class="form-control auth-input" placeholder="Value">
+              <input
+                type="password"
+                class="form-control auth-input"
+                placeholder="Value"
+                [(ngModel)]="password"
+                name="password"
+                [ngClass]="{ 'is-invalid': formularioInvalido && !password }">
             </div>
 
-            <div class="d-grid mb-4">
-              <button type="button" class="btn register-btn">Registrar</button>
+            <!-- Event binding: al hacer clic se ejecuta registrarUsuario() -->
+            <div class="d-grid mb-3">
+              <button type="button" class="btn register-btn" (click)="registrarUsuario()">
+                {{ textoRegistro }}
+              </button>
             </div>
+
+            <!-- Interpolación: muestra un mensaje que cambia según el estado del formulario -->
+            <p class="text-center small mb-4">{{ mensajeEstado }}</p>
 
             <p class="text-center social-text mb-3">o usa una de tus redes sociales</p>
 

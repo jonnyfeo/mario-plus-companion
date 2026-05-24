@@ -1,4 +1,31 @@
 <div class="profile-page">
+
+  <!-- Barra superior copiada desde Home -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <div class="brand-area">
+          <img [src]="logoApp" alt="Logo Mario Plus" class="brand-logo-img">
+        </div>
+
+        <nav class="main-nav">
+          <a routerLink="/home" class="nav-link">Home</a>
+          <a class="nav-link">Mundos</a>
+          <a routerLink="/personajes" class="nav-link">Personajes</a>
+          <a routerLink="/games" class="nav-link">Juegos</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar" />
+          </div>
+          <a routerLink="/profile" class="profile-btn active-profile-btn">Perfil</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <div class="container py-4 py-lg-5">
 
     <!-- Cabecera superior -->
@@ -10,14 +37,19 @@
           <div class="col-lg-8">
             <div class="d-flex align-items-center gap-4 flex-wrap">
               <div class="avatar-wrapper">
-                <img src="/assets/avatar-mario.png" alt="Avatar de Mario" class="avatar-image">
+                <!-- Property binding: el avatar se carga desde TypeScript -->
+                <img [src]="avatarUrl" [alt]="nombreJugador" class="avatar-image">
               </div>
 
               <div>
                 <p class="profile-tag mb-2">Perfil del jugador</p>
-                <h1 class="profile-title mb-2">Mario</h1>
+
+                <!-- Interpolación -->
+                <h1 class="profile-title mb-2">{{ nombreJugador }}</h1>
+
+                <!-- Interpolación -->
                 <p class="profile-subtext mb-0">
-                  Nivel Silver · Explorador del Reino Champiñón · Progreso activo en retos y mundos desbloqueables
+                  {{ descripcionJugador }}
                 </p>
               </div>
             </div>
@@ -26,13 +58,19 @@
           <div class="col-lg-4">
             <div class="profile-level-card">
               <h3 class="mb-2">Nivel actual</h3>
-              <p class="level-name mb-3">Silver</p>
+
+              <!-- Interpolación -->
+              <p class="level-name mb-3">{{ nivelActual }}</p>
 
               <div class="progress modern-progress mb-3">
-                <div class="progress-bar" style="width: 72%">72%</div>
+                <!-- Property binding: el ancho de la barra depende del porcentaje -->
+                <div class="progress-bar" [style.width.%]="progresoNivel">
+                  {{ progresoNivel }}%
+                </div>
               </div>
 
-              <p class="level-help mb-0">Te faltan 28% para llegar al Nivel Gold.</p>
+              <!-- Interpolación -->
+              <p class="level-help mb-0">{{ mensajeNivel }}</p>
             </div>
           </div>
         </div>
@@ -84,22 +122,26 @@
             <div class="info-list">
               <div class="info-item">
                 <span class="info-label">Nombre de usuario</span>
-                <span class="info-value">@mario.player</span>
+                <!-- Interpolación -->
+                <span class="info-value">{{ nombreUsuario }}</span>
               </div>
 
               <div class="info-item">
                 <span class="info-label">Correo</span>
-                <span class="info-value">mario@nintendo.com</span>
+                <!-- Interpolación -->
+                <span class="info-value">{{ correoUsuario }}</span>
               </div>
 
               <div class="info-item">
                 <span class="info-label">Estado</span>
-                <span class="info-value">Activo</span>
+                <!-- Interpolación -->
+                <span class="info-value">{{ estadoUsuario }}</span>
               </div>
 
               <div class="info-item">
                 <span class="info-label">Miembro desde</span>
-                <span class="info-value">2026</span>
+                <!-- Interpolación -->
+                <span class="info-value">{{ miembroDesde }}</span>
               </div>
             </div>
 
@@ -115,29 +157,23 @@
             <h2 class="section-heading">Logros e insignias</h2>
 
             <div class="row g-3">
-              <div class="col-md-4">
-                <div class="badge-card text-center">
-                  <img src="/assets/badge-bronze.png" alt="Insignia Bronze" class="badge-image">
-                  <h4>Bronze</h4>
-                  <p>Primer nivel desbloqueado</p>
-                </div>
-              </div>
+              <!-- Directiva *ngFor: crea una tarjeta por cada insignia -->
+              <div class="col-md-4" *ngFor="let insignia of insignias">
+  <!-- Toda la card funciona como botón -->
+  <button
+    type="button"
+    class="badge-card text-center badge-card-button"
+    [class.active-badge]="insignia.activa"
+    (click)="verLogro(insignia.nombre)">
 
-              <div class="col-md-4">
-                <div class="badge-card text-center active-badge">
-                  <img src="/assets/badge-silver.png" alt="Insignia Silver" class="badge-image">
-                  <h4>Silver</h4>
-                  <p>Nivel actual del jugador</p>
-                </div>
-              </div>
+    <!-- Property binding: la imagen cambia según la insignia -->
+    <img [src]="insignia.imagen" [alt]="insignia.nombre" class="badge-image">
 
-              <div class="col-md-4">
-                <div class="badge-card text-center">
-                  <img src="/assets/badge-gold.png" alt="Insignia Gold" class="badge-image">
-                  <h4>Gold</h4>
-                  <p>Próximo objetivo a desbloquear</p>
-                </div>
-              </div>
+    <!-- Interpolación -->
+    <h4>{{ insignia.nombre }}</h4>
+    <p>{{ insignia.descripcion }}</p>
+  </button>
+</div>
             </div>
 
             <div class="mt-4">

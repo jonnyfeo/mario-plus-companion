@@ -175,6 +175,44 @@
   text-align: center;
 }
 
+.quick-card-button {
+  border: none;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-card-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.quick-card-button:focus {
+  outline: 2px solid #d10000;
+  outline-offset: 2px;
+}
+
+.unlock-card-button {
+  border: none;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.unlock-card-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+}
+
+.unlock-card-button:focus {
+  outline: 2px solid #d10000;
+  outline-offset: 2px;
+}
+
 .quick-image {
   width: 100px;
   height: 100px;
@@ -255,4 +293,5 @@
     flex-direction: column;
     text-align: center;
   }
+  
 }

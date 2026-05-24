@@ -1,37 +1,80 @@
 <div class="games-page">
+
+  <!-- Barra superior copiada desde Home -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <div class="brand-area">
+          <img [src]="logoApp" alt="Logo Mario Plus" class="brand-logo-img">
+        </div>
+
+        <nav class="main-nav">
+          <a routerLink="/home" class="nav-link">Home</a>
+          <a class="nav-link">Mundos</a>
+          <a routerLink="/personajes" class="nav-link">Personajes</a>
+          <a routerLink="/games" class="nav-link active-link">Juegos</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar" />
+          </div>
+          <a routerLink="/profile" class="profile-btn">Perfil</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <div class="container py-4 py-lg-5">
 
-    <!-- Encabezado -->
+    <!-- Encabezado principal -->
     <section class="games-hero">
       <div class="games-hero-overlay"></div>
 
       <div class="games-hero-content">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <p class="games-tag mb-2">Mario+ · Juegos</p>
-            <h1 class="games-title">Desafíos, minijuegos y progreso</h1>
+
+            <!-- Interpolación -->
+            <p class="games-tag mb-2">{{ etiquetaHero }}</p>
+
+            <!-- Interpolación -->
+            <h1 class="games-title">{{ tituloHero }}</h1>
+
+            <!-- Interpolación -->
             <p class="games-text">
-              Explora sesiones rápidas, supera retos por nivel y desbloquea contenido
-              exclusivo mientras avanzas dentro del universo Mario Bros.
+              {{ descripcionHero }}
             </p>
 
             <div class="hero-buttons">
-              <button class="btn btn-light rounded-pill px-4">Explorar juegos</button>
-              <a routerLink="/home" class="btn btn-outline-light rounded-pill px-4">Volver a Home</a>
+              <button class="btn btn-light rounded-pill px-4" (click)="iniciarJuego('Exploración general')">
+                Explorar juegos
+              </button>
+
+              <a routerLink="/home" class="btn btn-outline-light rounded-pill px-4">
+                Volver a Home
+              </a>
             </div>
           </div>
 
           <div class="col-lg-5">
             <div class="hero-side-card">
               <h3 class="mb-2">Nivel recomendado</h3>
-              <p class="mb-3">Medium</p>
+
+              <!-- Interpolación -->
+              <p class="mb-3">{{ nivelRecomendado }}</p>
 
               <div class="progress modern-progress mb-3">
-                <div class="progress-bar" style="width: 64%">64%</div>
+                <!-- Property binding: el ancho depende de la variable -->
+                <div class="progress-bar" [style.width.%]="porcentajeProgreso">
+                  {{ porcentajeProgreso }}%
+                </div>
               </div>
 
+              <!-- Interpolación -->
               <p class="hero-side-text mb-0">
-                Tienes buen progreso para seguir desbloqueando nuevos retos.
+                {{ mensajeProgreso }}
               </p>
             </div>
           </div>
@@ -41,49 +84,43 @@
 
     <!-- Filtros -->
     <section class="mt-4">
-      <div class="filter-bar">
-        <button class="filter-btn active-filter">All</button>
-        <button class="filter-btn">Easy</button>
-        <button class="filter-btn">Medium</button>
-        <button class="filter-btn">Hard</button>
-      </div>
-    </section>
+  <div class="filter-bar">
+    <button
+      *ngFor="let filtro of filtros"
+      class="filter-btn"
+      [ngClass]="{ 'active-filter': filtroActivo === filtro }"
+      (click)="seleccionarFiltro(filtro)">
 
-    <!-- Tarjetas -->
+      {{ filtro }}
+    </button>
+  </div>
+</section>
+
+    <!-- Tarjetas de juegos -->
     <section class="mt-4">
       <div class="row g-4">
-        <div class="col-md-6 col-xl-4">
-          <div class="game-card">
-            <img src="/assets/game-card-1.jpg" alt="Juego 1" class="game-image">
-            <div class="game-card-body">
-              <span class="game-level">Easy</span>
-              <h3>Match the Character</h3>
-              <p>Relaciona personajes del universo Mario y pon a prueba tu memoria visual.</p>
-              <button class="btn btn-danger rounded-pill px-4">Jugar</button>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-md-6 col-xl-4">
+        <!-- Directiva *ngFor: crea una card por cada juego -->
+        <div class="col-md-6 col-xl-4" *ngFor="let juego of juegosFiltrados">
           <div class="game-card">
-            <img src="/assets/game-card-2.jpg" alt="Juego 2" class="game-image">
-            <div class="game-card-body">
-              <span class="game-level">Medium</span>
-              <h3>Coin Rush</h3>
-              <p>Supera una serie de desafíos cortos recolectando monedas y manteniendo la racha.</p>
-              <button class="btn btn-danger rounded-pill px-4">Jugar</button>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-md-6 col-xl-4">
-          <div class="game-card">
-            <img src="/assets/game-card-3.jpg" alt="Juego 3" class="game-image">
+            <!-- Property binding -->
+            <img [src]="juego.imagen" [alt]="juego.nombre" class="game-image">
+
             <div class="game-card-body">
-              <span class="game-level">Hard</span>
-              <h3>Mario Tennis Challenge</h3>
-              <p>Desafío avanzado con mayor dificultad y recompensa superior al completar objetivos.</p>
-              <button class="btn btn-danger rounded-pill px-4">Jugar</button>
+              <!-- Interpolación -->
+              <span class="game-level">{{ juego.nivel }}</span>
+
+              <!-- Interpolación -->
+              <h3>{{ juego.nombre }}</h3>
+
+              <!-- Interpolación -->
+              <p>{{ juego.descripcion }}</p>
+
+              <!-- Event binding -->
+              <button class="btn btn-danger rounded-pill px-4" (click)="iniciarJuego(juego.nombre)">
+                Jugar
+              </button>
             </div>
           </div>
         </div>
@@ -100,12 +137,19 @@
 
           <div class="col-lg-6">
             <p class="featured-tag mb-2">Juego destacado</p>
-            <h2 class="featured-title">Reto especial de la semana</h2>
+
+            <!-- Interpolación -->
+            <h2 class="featured-title">{{ destacadoTitulo }}</h2>
+
+            <!-- Interpolación -->
             <p class="featured-text">
-              Completa este desafío para desbloquear contenido exclusivo, aumentar tu nivel
-              y reforzar tu progreso dentro de la app.
+              {{ destacadoTexto }}
             </p>
-            <button class="btn btn-danger rounded-pill px-4">Comenzar reto</button>
+
+            <!-- Event binding -->
+            <button class="btn btn-danger rounded-pill px-4" (click)="comenzarReto()">
+              Comenzar reto
+            </button>
           </div>
         </div>
       </div>

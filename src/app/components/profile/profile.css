@@ -1,3 +1,93 @@
+.site-header {
+  background: linear-gradient(180deg, #e00000 0%, #c80000 100%);
+  padding: 18px 0;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brand-logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.main-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  min-width: 180px;
+  max-width: 220px;
+  width: 100%;
+}
+
+.profile-btn {
+  background: white;
+  color: #c80000;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.active-profile-btn {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.35);
+}
+
+@media (max-width: 991px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .main-nav {
+    justify-content: center;
+  }
+
+  .header-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search-box input {
+    min-width: 180px;
+    width: 100%;
+  }
+}
+
 .profile-page {
   min-height: 100vh;
   background: #f4f4f4;
@@ -177,6 +267,23 @@
   border-radius: 22px;
   padding: 20px 16px;
   height: 100%;
+}
+
+.badge-card-button {
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge-card-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+}
+
+.badge-card-button:focus {
+  outline: 2px solid #d10000;
+  outline-offset: 2px;
 }
 
 .badge-image {
