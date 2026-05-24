@@ -1,1 +1,115 @@
-<p>games works!</p>
+<div class="games-page">
+  <div class="container py-4 py-lg-5">
+
+    <!-- Encabezado -->
+    <section class="games-hero">
+      <div class="games-hero-overlay"></div>
+
+      <div class="games-hero-content">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <p class="games-tag mb-2">Mario+ · Juegos</p>
+            <h1 class="games-title">Desafíos, minijuegos y progreso</h1>
+            <p class="games-text">
+              Explora sesiones rápidas, supera retos por nivel y desbloquea contenido
+              exclusivo mientras avanzas dentro del universo Mario Bros.
+            </p>
+
+            <div class="hero-buttons">
+              <button class="btn btn-light rounded-pill px-4">Explorar juegos</button>
+              <a routerLink="/home" class="btn btn-outline-light rounded-pill px-4">Volver a Home</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="hero-side-card">
+              <h3 class="mb-2">Nivel recomendado</h3>
+              <p class="mb-3">Medium</p>
+
+              <div class="progress modern-progress mb-3">
+                <div class="progress-bar" style="width: 64%">64%</div>
+              </div>
+
+              <p class="hero-side-text mb-0">
+                Tienes buen progreso para seguir desbloqueando nuevos retos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="mt-4">
+      <div class="filter-bar">
+        <button class="filter-btn active-filter">All</button>
+        <button class="filter-btn">Easy</button>
+        <button class="filter-btn">Medium</button>
+        <button class="filter-btn">Hard</button>
+      </div>
+    </section>
+
+    <!-- Tarjetas -->
+    <section class="mt-4">
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4">
+          <div class="game-card">
+            <img src="/assets/game-card-1.jpg" alt="Juego 1" class="game-image">
+            <div class="game-card-body">
+              <span class="game-level">Easy</span>
+              <h3>Match the Character</h3>
+              <p>Relaciona personajes del universo Mario y pon a prueba tu memoria visual.</p>
+              <button class="btn btn-danger rounded-pill px-4">Jugar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <div class="game-card">
+            <img src="/assets/game-card-2.jpg" alt="Juego 2" class="game-image">
+            <div class="game-card-body">
+              <span class="game-level">Medium</span>
+              <h3>Coin Rush</h3>
+              <p>Supera una serie de desafíos cortos recolectando monedas y manteniendo la racha.</p>
+              <button class="btn btn-danger rounded-pill px-4">Jugar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <div class="game-card">
+            <img src="/assets/game-card-3.jpg" alt="Juego 3" class="game-image">
+            <div class="game-card-body">
+              <span class="game-level">Hard</span>
+              <h3>Mario Tennis Challenge</h3>
+              <p>Desafío avanzado con mayor dificultad y recompensa superior al completar objetivos.</p>
+              <button class="btn btn-danger rounded-pill px-4">Jugar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloque destacado -->
+    <section class="mt-4">
+      <div class="featured-game">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <img src="/assets/game-hero.jpg" alt="Juego destacado" class="featured-image">
+          </div>
+
+          <div class="col-lg-6">
+            <p class="featured-tag mb-2">Juego destacado</p>
+            <h2 class="featured-title">Reto especial de la semana</h2>
+            <p class="featured-text">
+              Completa este desafío para desbloquear contenido exclusivo, aumentar tu nivel
+              y reforzar tu progreso dentro de la app.
+            </p>
+            <button class="btn btn-danger rounded-pill px-4">Comenzar reto</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
