@@ -1,5 +1,158 @@
-<div class="container py-5">
-  <h1 class="text-dark">Pantalla Perfil</h1>
-  <p>Aquí irá la información del jugador.</p>
-  <a routerLink="/home" class="btn btn-secondary">Volver a Home</a>
+<div class="profile-page">
+  <div class="container py-4 py-lg-5">
+
+    <!-- Cabecera superior -->
+    <section class="profile-hero">
+      <div class="profile-hero-overlay"></div>
+
+      <div class="profile-hero-content">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <div class="d-flex align-items-center gap-4 flex-wrap">
+              <div class="avatar-wrapper">
+                <img src="/assets/avatar-mario.png" alt="Avatar de Mario" class="avatar-image">
+              </div>
+
+              <div>
+                <p class="profile-tag mb-2">Perfil del jugador</p>
+                <h1 class="profile-title mb-2">Mario</h1>
+                <p class="profile-subtext mb-0">
+                  Nivel Silver · Explorador del Reino Champiñón · Progreso activo en retos y mundos desbloqueables
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="profile-level-card">
+              <h3 class="mb-2">Nivel actual</h3>
+              <p class="level-name mb-3">Silver</p>
+
+              <div class="progress modern-progress mb-3">
+                <div class="progress-bar" style="width: 72%">72%</div>
+              </div>
+
+              <p class="level-help mb-0">Te faltan 28% para llegar al Nivel Gold.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métricas -->
+    <section class="mt-4">
+      <div class="row g-3">
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <h3>120</h3>
+            <p>Partidas completadas</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <h3>47</h3>
+            <p>Racha máxima</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <h3>12</h3>
+            <p>Retos superados</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <h3>5</h3>
+            <p>Mundos explorados</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuerpo principal -->
+    <section class="mt-4">
+      <div class="row g-4">
+
+        <!-- Información personal -->
+        <div class="col-lg-5">
+          <div class="content-card h-100">
+            <h2 class="section-heading">Información del jugador</h2>
+
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-label">Nombre de usuario</span>
+                <span class="info-value">@mario.player</span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Correo</span>
+                <span class="info-value">mario@nintendo.com</span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Estado</span>
+                <span class="info-value">Activo</span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Miembro desde</span>
+                <span class="info-value">2026</span>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a routerLink="/home" class="btn btn-danger rounded-pill px-4">Volver a Home</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logros -->
+        <div class="col-lg-7">
+          <div class="content-card h-100">
+            <h2 class="section-heading">Logros e insignias</h2>
+
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="badge-card text-center">
+                  <img src="/assets/badge-bronze.png" alt="Insignia Bronze" class="badge-image">
+                  <h4>Bronze</h4>
+                  <p>Primer nivel desbloqueado</p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="badge-card text-center active-badge">
+                  <img src="/assets/badge-silver.png" alt="Insignia Silver" class="badge-image">
+                  <h4>Silver</h4>
+                  <p>Nivel actual del jugador</p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="badge-card text-center">
+                  <img src="/assets/badge-gold.png" alt="Insignia Gold" class="badge-image">
+                  <h4>Gold</h4>
+                  <p>Próximo objetivo a desbloquear</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <h3 class="subsection-heading">Resumen de progreso</h3>
+              <p class="summary-text mb-0">
+                El perfil del jugador reúne el avance general dentro de la plataforma:
+                progreso por nivel, retos cumplidos, actividad reciente y potencial de desbloqueo
+                de contenido exclusivo, todo integrado en una interfaz clara y visual.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
 </div>
