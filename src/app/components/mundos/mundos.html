@@ -1,0 +1,95 @@
+<div class="cabecera-mundos p-5 rounded-4 shadow-sm text-white mb-4">
+  <div class="container">
+    
+    <!-- Encabezado estilo Hero con el degradado del equipo -->
+    <div class="worlds-hero mb-5 d-flex align-items-center">
+      <div class="worlds-hero-overlay"></div>
+      <div class="worlds-hero-content w-100">
+        <span class="worlds-tag">Mario+ - Mundos</span>
+        <h1 class="worlds-title">Mundos de la Franquicia</h1>
+        <p class="worlds-text">
+          Descubre los secretos, datos curiosos y localizaciones más emblemáticas del universo de Mario Plus. ¡Elige un rumbo para comenzar tu aventura informativa!
+          </p><!-- Contenedor alineado a la izquierda (justify-content-start) -->
+           <div class="d-flex gap-3 mt-4 justify-content-start text-start">
+  
+   <button type="button" onclick="document.getElementById('listado-mundos').scrollIntoView({behavior: 'smooth'})" class="btn btn-light px-4 py-2 fw-bold rounded-pill text-danger">
+     Explorar Mundos
+   </button>
+
+  <!-- Botón Volver a Home con la ruta de navegación de Angular activa -->
+<button type="button" routerLink="/home" class="btn bg-transparent px-4 py-2 fw-bold rounded-pill text-white border border-white shadow-sm">
+  Volver a Home
+</button>
+
+</div>
+        
+      </div>
+    </div>
+
+    <!-- Rejilla de tarjetas responsiva -->
+   <div id="listado-mundos" class="row g-4">
+      
+      <!-- 1. Reino Champiñón -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="world-card">
+            <img src="/assets/reino-champinon.jpg" alt="Reino Champiñón" class="world-image">
+          <div class="world-card-body">
+            <span class="world-badge">Dato Descubierto</span>
+            <h3>Reino Champiñón</h3>
+            <p>La pacífica tierra gobernada por la Princesa Peach. Famosa por sus colinas verdes, bloques flotantes y abundancia de superchampiñones.</p>
+            <button class="btn btn-mario w-100">Explorar Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Mundo Jungla -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="world-card">
+          <img src="/assets/mundo-jungla.jpg" alt="Mundo Jungla" class="world-image">          <div class="world-card-body">
+            <span class="world-badge">Dato Descubierto</span>
+            <h3>Mundo Jungla</h3>
+            <p>El hogar tropical del clan de Donkey Kong. Un territorio lleno de barriles cañón, lianas mecánicas y una vegetación salvaje inmensa.</p>
+            <button class="btn btn-mario w-100">Explorar Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Tierras Oscuras -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="world-card">
+           <img src="/assets/tierras-oscuras.jpg" alt="Tierras Oscuras" class="world-image">          <div class="world-card-body">
+            <span class="world-badge">Dato Descubierto</span>
+            <h3>Tierras Oscuras</h3>
+            <p>El imponente territorio volcánico bajo el dominio de Bowser. Ríos de lava ardiente y fortalezas de piedra custodian este peligroso lugar.</p>
+            <button class="btn btn-mario w-100">Explorar Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Reino de Hielo -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="world-card">
+           <img src="/assets/reino-hielo.png" alt="Reino de Hielo" class="world-image">          <div class="world-card-body">
+            <span class="world-badge">Dato Descubierto</span>
+            <h3>Reino de Hielo</h3>
+            <p>Una región congelada repleta de témpanos resbaladizos y pingüinos amigables. Oculta cavernas de cristal bajo sus capas de nieve.</p>
+            <button class="btn btn-mario w-100">Explorar Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Senda Arcoíris -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="world-card">
+          <img src="/assets/senda-arcoiris.jpg" alt="Senda Arcoíris" class="world-image">          <div class="world-card-body">
+            <span class="world-badge">Dato Descubierto</span>
+            <h3>Senda Arcoíris</h3>
+            <p>Una pista mística suspendida en el espacio estelar. Sus caminos multicolores sin barreras desafían la gravedad entre galaxias lejanas.</p>
+            <button class="btn btn-mario w-100">Explorar Detalles</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
