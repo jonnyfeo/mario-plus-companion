@@ -1,58 +1,68 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router'; // 👈 Añadimos esta línea nueva
-
-interface Mundo {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  imagen: string;
-}
+import { RouterLink } from '@angular/router';
+import { NgFor } from '@angular/common'; // Permite usar *ngFor en el HTML
 
 @Component({
-  selector: 'app-app-mundos',
+  selector: 'app-mundos',
   standalone: true,
-  imports: [CommonModule, RouterLink],
- templateUrl: './mundos.html',
- styleUrl: './mundos.css'
+  imports: [RouterLink, NgFor], // RouterLink para navegación y NgFor para renderizar tarjetas dinámicas
+  templateUrl: './mundos.html',
+  styleUrl: './mundos.css'
 })
 export class MundosComponent {
-  titulo: string = 'Mundos por Explorar';
-  
-  mundos: Mundo[] = [
+
+  // Logo mostrado en la barra superior
+  logoApp = '/assets/logo-mario-plus.png';
+
+  // Textos del hero
+  etiquetaMundos = 'Mario+ - Mundos';
+  tituloMundos = 'Mundos de la Franquicia';
+  descripcionMundos = 'Descubre los secretos, datos curiosos y localizaciones más emblemáticas del universo de Mario Plus. ¡Elige un rumbo para comenzar tu aventura informativa!';
+
+  // Datos de las tarjetas
+  mundos = [
     {
-      id: 1,
-      nombre: 'El Reino Champiñón',
-      descripcion: 'Praderas verdes y pacíficas llenas de tuberías, bloques sorpresa y el gran castillo de la Princesa Peach.',
-      imagen: 'assets/images/reino-champinon.png'
+      nombre: 'Reino Champiñón',
+      etiqueta: 'Dato Descubierto',
+      imagen: '/assets/reino-champinon.jpg',
+      descripcion: 'La pacífica tierra gobernada por la Princesa Peach. Famosa por sus colinas verdes, bloques flotantes y abundancia de superchampiñones.'
     },
     {
-      id: 2,
-      nombre: 'El Reino Jungla (Isla Kong)',
-      descripcion: 'Un espeso paraíso tropical gobernado por los Kong, repleto de plataformas de madera y karts listos para competir.',
-      imagen: 'assets/images/reino-jungla.png'
+      nombre: 'Mundo Jungla',
+      etiqueta: 'Dato Descubierto',
+      imagen: '/assets/mundo-jungla.jpg',
+      descripcion: 'El hogar tropical del clan de Donkey Kong. Un territorio lleno de barriles cañón, lianas mecánicas y una vegetación salvaje inmensa.'
     },
     {
-      id: 3,
-      nombre: 'Las Tierras Oscuras (Reino de Bowser)',
-      descripcion: 'Un territorio volcánico y hostil con ríos de lava, fortalezas de piedra negra y el imponente castillo flotante de Bowser.',
-      imagen: 'assets/images/tierras-oscuras.png'
+      nombre: 'Tierras Oscuras',
+      etiqueta: 'Dato Descubierto',
+      imagen: '/assets/tierras-oscuras.jpg',
+      descripcion: 'El imponente territorio volcánico bajo el dominio de Bowser. Ríos de lava ardiente y fortalezas de piedra custodian este peligroso lugar.'
     },
     {
-      id: 4,
-      nombre: 'El Reino de Hielo',
-      descripcion: 'Un paisaje congelado habitado por simpáticos pingüinos, donde el suelo resbala y los icebergs flotan en aguas heladas.',
-      imagen: 'assets/images/reino-hielo.png'
+      nombre: 'Reino de Hielo',
+      etiqueta: 'Dato Descubierto',
+      imagen: '/assets/reino-hielo.png',
+      descripcion: 'Una región congelada repleta de témpanos resbaladizos y pingüinos amigables. Oculta cavernas de cristal bajo sus capas de nieve.'
     },
     {
-      id: 5,
-      nombre: 'La Senda Arcoíris',
-      descripcion: 'Una mítica y colorida pista celestial construida sobre el espacio exterior. ¡Solo para los conductores más expertos!',
-      imagen: 'assets/images/senda-arcoiris.png'
+      nombre: 'Senda Arcoíris',
+      etiqueta: 'Dato Descubierto',
+      imagen: '/assets/senda-arcoiris.jpg',
+      descripcion: 'Una pista mística suspendida en el espacio estelar. Sus caminos multicolores sin barreras desafían la gravedad entre galaxias lejanas.'
     }
   ];
 
-  explorarMundo(nombre: string) {
-    alert('Abriendo datos de exploración para: ' + nombre);
+  // Baja suavemente al listado
+  irAListadoMundos() {
+    const seccion = document.getElementById('listado-mundos');
+    if (seccion) {
+      seccion.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Acción temporal
+  explorarMundo(nombreMundo: string) {
+    alert(`Has seleccionado el mundo: ${nombreMundo}`);
   }
 }
