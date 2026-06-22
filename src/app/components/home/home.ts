@@ -1,42 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common'; // Permite usar *ngFor en el HTML
+import { NgFor } from '@angular/common';
+import { CompanionDataService } from '../../services/companion-data';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, NgFor], // Se agrega NgFor para renderizar listas dinámicas
+  imports: [RouterLink, NgFor],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
 
-  // =========================
-  // DATOS GENERALES DEL HEADER Y HERO
-  // =========================
+  // Inyección del servicio
+  private companionDataService = inject(CompanionDataService);
 
-  // Nombre del usuario mostrado en el saludo principal
-  nombreUsuario = 'Mario';
-
-  // Texto principal del progreso del usuario
-  mensajeProgreso = 'Te faltan 10 rachas para ser Nivel Gold. Explora curiosidades, completa retos y desbloquea contenido exclusivo.';
-
-  // Porcentaje actual de avance
-  porcentajeProgreso = 80;
-
-  // Nivel actual del usuario
-  nivelUsuario = 'Silver';
-
-  // Texto del panel de progreso
-  mensajeNivel = 'Tu progreso actual te acerca al Nivel Gold.';
-
-  // Logo de la aplicación
+  // Logo
   logoApp = '/assets/logo-mario-plus.png';
 
-  // =========================
-  // TARJETAS DE ACCESOS RÁPIDOS
-  // =========================
+  // Datos del usuario obtenidos desde el servicio
+  usuario = this.companionDataService.getUsuario();
 
+  // Métricas obtenidas desde el servicio
+  metricas = this.companionDataService.getMetricas();
+
+  // Accesos rápidos
   accesosRapidos = [
     {
       titulo: 'Curiosidades',
@@ -50,11 +38,6 @@ export class Home {
     }
   ];
 
-  // =========================
-  // FUNCIÓN DE ACCIÓN
-  // =========================
-
-  // Esta función se activa al pulsar botones específicos
   verSeccion(nombreSeccion: string) {
     alert(`Has seleccionado la sección: ${nombreSeccion}`);
   }

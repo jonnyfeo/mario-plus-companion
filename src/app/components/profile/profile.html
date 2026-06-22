@@ -38,18 +38,18 @@
             <div class="d-flex align-items-center gap-4 flex-wrap">
               <div class="avatar-wrapper">
                 <!-- Property binding: el avatar se carga desde TypeScript -->
-                <img [src]="avatarUrl" [alt]="nombreJugador" class="avatar-image">
+                <img [src]="usuario.avatarUrl" [alt]="usuario.nombreJugador" class="avatar-image">
               </div>
 
               <div>
                 <p class="profile-tag mb-2">Perfil del jugador</p>
 
                 <!-- Interpolación -->
-                <h1 class="profile-title mb-2">{{ nombreJugador }}</h1>
+                <h1 class="profile-title mb-2">{{ usuario.nombreJugador }}</h1>
 
                 <!-- Interpolación -->
                 <p class="profile-subtext mb-0">
-                  {{ descripcionJugador }}
+                  {{ usuario.descripcionJugador }}
                 </p>
               </div>
             </div>
@@ -60,17 +60,17 @@
               <h3 class="mb-2">Nivel actual</h3>
 
               <!-- Interpolación -->
-              <p class="level-name mb-3">{{ nivelActual }}</p>
+              <p class="level-name mb-3">{{ usuario.nivelActual }}</p>
 
               <div class="progress modern-progress mb-3">
                 <!-- Property binding: el ancho de la barra depende del porcentaje -->
-                <div class="progress-bar" [style.width.%]="progresoNivel">
-                  {{ progresoNivel }}%
+                <div class="progress-bar" [style.width.%]="usuario.progresoNivel">
+                  {{ usuario.progresoNivel }}%
                 </div>
               </div>
 
               <!-- Interpolación -->
-              <p class="level-help mb-0">{{ mensajeNivel }}</p>
+              <p class="level-help mb-0">{{ usuario.mensajeNivel }}</p>
             </div>
           </div>
         </div>
@@ -123,25 +123,25 @@
               <div class="info-item">
                 <span class="info-label">Nombre de usuario</span>
                 <!-- Interpolación -->
-                <span class="info-value">{{ nombreUsuario }}</span>
+                <span class="info-value">{{ usuario.nombreUsuario }}</span>
               </div>
 
               <div class="info-item">
                 <span class="info-label">Correo</span>
                 <!-- Interpolación -->
-                <span class="info-value">{{ correoUsuario }}</span>
+                <span class="info-value">{{ usuario.correoUsuario }}</span>
               </div>
 
               <div class="info-item">
                 <span class="info-label">Estado</span>
                 <!-- Interpolación -->
-                <span class="info-value">{{ estadoUsuario }}</span>
+                <span class="info-value">{{ usuario.estadoUsuario }}</span>
               </div>
 
               <div class="info-item">
                 <span class="info-label">Miembro desde</span>
                 <!-- Interpolación -->
-                <span class="info-value">{{ miembroDesde }}</span>
+                <span class="info-value">{{ usuario.miembroDesde }}</span>
               </div>
             </div>
 

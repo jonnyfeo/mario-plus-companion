@@ -33,11 +33,11 @@
             <p class="mini-label mb-2">Companion App</p>
 
             <!-- Interpolación: muestra el nombre del usuario -->
-            <h1 class="hero-title">Hi, {{ nombreUsuario }}</h1>
+            <h1 class="hero-title">Hi, {{ usuario.nombreJugador }}</h1>
 
             <!-- Interpolación: muestra el mensaje dinámico -->
             <p class="hero-text">
-              {{ mensajeProgreso }}
+              {{ usuario.mensajeProgreso }}
             </p>
 
             <div class="hero-actions">
@@ -57,15 +57,15 @@
           <div class="progress-panel">
             <div class="progress-circle">
               <!-- Interpolación: muestra el porcentaje actual -->
-              <div class="progress-circle-inner">{{ porcentajeProgreso }}%</div>
+              <div class="progress-circle-inner">{{ usuario.progresoNivel }}%</div>
             </div>
 
             <div class="level-info">
               <!-- Interpolación -->
-              <h3 class="mb-1">Nivel {{ nivelUsuario }}</h3>
+              <h3 class="mb-1">Nivel Nivel {{ usuario.nivelActual }}</h3>
 
               <!-- Interpolación -->
-              <p class="mb-0">{{ mensajeNivel }}</p>
+              <p class="mb-0">{{ usuario.mensajeNivel }}</p>
             </div>
           </div>
         </div>
@@ -76,19 +76,19 @@
       <div class="row g-3">
         <div class="col-md-4">
           <div class="stat-card">
-            <h3>120</h3>
+            <h3>{{ metricas.partidas }}</h3>
             <p>partidas</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="stat-card">
-            <h3>47</h3>
+            <h3>{{ metricas.rachaMaxima }}</h3>
             <p>racha máxima</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="stat-card">
-            <h3>0.43</h3>
+            <h3>{{ metricas.mejorMarca }}</h3>
             <p>mejor marca</p>
           </div>
         </div>

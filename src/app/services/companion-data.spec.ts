@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { CompanionDataService } from './companion-data';
 
-import { CompanionData } from './companion-data';
-
-describe('CompanionData', () => {
-  let service: CompanionData;
+describe('CompanionDataService', () => {
+  let service: CompanionDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CompanionData);
+    service = TestBed.inject(CompanionDataService);
   });
 
   it('should be created', () => {

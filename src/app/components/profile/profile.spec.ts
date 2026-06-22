@@ -1,22 +1,30 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { NgFor } from '@angular/common';
+import { CompanionDataService } from '../../services/companion-data';
 
-import { Profile } from './profile';
+@Component({
+  selector: 'app-profile',
+  standalone: true,
+  imports: [RouterLink, NgFor],
+  templateUrl: './profile.html',
+  styleUrl: './profile.css'
+})
+export class Profile {
 
-describe('Profile', () => {
-  let component: Profile;
-  let fixture: ComponentFixture<Profile>;
+  // Inyección del servicio
+  private companionDataService = inject(CompanionDataService);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Profile],
-    }).compileComponents();
+  // Logo para el header
+  logoApp = '/assets/logo-mario-plus.png';
 
-    fixture = TestBed.createComponent(Profile);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  // Datos obtenidos desde el servicio
+  usuario = this.companionDataService.getUsuario();
+  metricas = this.companionDataService.getMetricas();
+  insignias = this.companionDataService.getInsignias();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  // Evento
+  verLogro(nombreLogro: string) {
+    alert(`Has seleccionado la insignia: ${nombreLogro}`);
+  }
+}
